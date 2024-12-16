@@ -11,7 +11,7 @@ body {
     align-items: center;
     height: 80vh;
     margin: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 h1 {
@@ -70,7 +70,7 @@ h1 {
 .letter {
     border-bottom: 3px solid #2980b9;
     font-size: 30px;
-    
+
     /* on the sibling level, flex elements are very similar to block element, which means the element will take the whole line by itself. since we want the element to be side by side, we use inline-flex.  */
     display: inline-flex; 
     align-items: center;
@@ -79,3 +79,66 @@ h1 {
     height: 50px;
     width: 20px;
 }
+
+.popup-container {
+    background-color: rgba(0,0,0, 0.3);
+
+    /* take it out of it's normal flow and make it cover the whole page */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    display: none;
+}
+
+.popup {
+    background: #2980b9;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0,0,0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.popup button {
+    cursor: pointer;
+    background-color: #fff;
+    color:#2980b9;
+    border: 0;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.popup button:active {
+    transform: scale(0.95);
+}
+
+.popup button:focus {
+    outline: 0;
+}
+
+.notification-container {
+    background-color: rgba(0,0,0, 0.3);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+
+    /* take it out of it's current flow and re-position it  */
+    position: absolute;
+    bottom: -50px; 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.notification-container p {
+    margin: 0;
+}
+
+.notification-container.show {
+    transform: translateY(-50px);
+}
+
